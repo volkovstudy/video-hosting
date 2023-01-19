@@ -1,0 +1,9 @@
+#ifndef VIDEO_HOSTING_AUTHENTICATIONSERVICE_H
+#define VIDEO_HOSTING_AUTHENTICATIONSERVICE_H
+
+
+class AuthenticationService {
+};
+
+
+#endif

@@ -9,6 +9,8 @@ using namespace std;
 class FileService {
 private:
     string _filePath;
+public:
+    explicit FileService(const string &filePath);
 };
 
 

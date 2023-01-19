@@ -9,6 +9,7 @@
 class FilmsRepository {
 public:
     vector<Film> findAll();
+    Film& findById(int id);
 };
 
 

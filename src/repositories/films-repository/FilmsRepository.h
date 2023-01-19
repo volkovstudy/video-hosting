@@ -10,6 +10,8 @@ class FilmsRepository {
 public:
     vector<Film> findAll();
     Film& findById(int id);
+
+    void save(Film& film);
 };
 
 

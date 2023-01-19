@@ -6,6 +6,8 @@
 
 #include <vector>
 
+#define usersFile "video-hosting-database/users"
+
 class UsersRepository {
 public:
     vector<User> findAll();

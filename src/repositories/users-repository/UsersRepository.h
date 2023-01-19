@@ -4,8 +4,11 @@
 
 #include "../../models/user/User.h"
 
+#include <vector>
+
 class UsersRepository {
 public:
+    vector<User> findAll();
     User& findById(int id);
 };
 

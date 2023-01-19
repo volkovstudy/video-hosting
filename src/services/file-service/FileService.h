@@ -11,6 +11,8 @@ private:
     string _filePath;
 public:
     explicit FileService(const string &filePath);
+
+    void write(const string& data);
 };
 
 

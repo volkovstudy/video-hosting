@@ -2,6 +2,7 @@
 #define VIDEO_HOSTING_FILESERVICE_H
 
 
+#include <fstream>
 #include <string>
 
 using namespace std;

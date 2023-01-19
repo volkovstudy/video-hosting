@@ -10,6 +10,8 @@ class UsersRepository {
 public:
     vector<User> findAll();
     User& findById(int id);
+
+    void save(const User& user);
 };
 
 

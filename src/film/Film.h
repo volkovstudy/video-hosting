@@ -7,12 +7,12 @@
 using namespace std;
 
 class Film {
-public:
-    const string &getTitle() const;
-    int getMark() const;
 private:
     string _title;
     int _mark;
+public:
+    const string &getTitle() const;
+    int getMark() const;
 };
 
 

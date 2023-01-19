@@ -8,4 +8,5 @@ add_executable(video-hosting
         src/models/film/Film.cpp src/models/film/Film.h
         src/models/user/User.cpp src/models/user/User.h
         src/services/authentication-service/AuthenticationService.cpp src/services/authentication-service/AuthenticationService.h
+        src/repositories/users-repository/UsersRepository.cpp src/repositories/users-repository/UsersRepository.h
 )

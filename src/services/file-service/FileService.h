@@ -4,6 +4,7 @@
 
 #include <fstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -12,6 +13,8 @@ private:
     string _filePath;
 public:
     explicit FileService(const string &filePath);
+
+    vector<string> readAll();
 
     void write(const string& data);
 };

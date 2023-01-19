@@ -4,6 +4,8 @@
 
 #include "../../models/user/User.h"
 
+#include "../../services/file-service/FileService.h"
+
 #include <vector>
 
 #define usersFile "video-hosting-database/users"

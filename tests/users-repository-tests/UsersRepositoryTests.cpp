@@ -7,12 +7,16 @@
 
 void shouldFindAllUsers();
 void shouldFindUserById();
+void shouldNotFindUserById();
 
 int main() {
     shouldFindAllUsers();
     ::remove(testFile);
 
     shouldFindUserById();
+    ::remove(testFile);
+
+    shouldNotFindUserById();
     ::remove(testFile);
 
     return 0;
@@ -65,4 +69,17 @@ void shouldFindUserById() {
 
     assert(userOne.getId() == 1 && users.at(0) == userOne);
     assert(userTwo.getId() == 2 && users.at(1) == userTwo);
+}
+
+void shouldNotFindUserById() {
+    UsersRepository usersRepository(testFile);
+
+    givenTwoUsersInDatabase();
+
+    try {
+        usersRepository.findById(9999);
+        assert(false == true); // This line shouldn't be run
+    } catch (runtime_error& error) {
+        // If caught, the test passed
+    }
 }

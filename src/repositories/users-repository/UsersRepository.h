@@ -15,6 +15,8 @@ class UsersRepository {
 private:
     string filePath;
 public:
+    explicit UsersRepository(const string& filePath);
+
     vector<User> findAll();
     User& findById(int id);
 

@@ -1,5 +1,7 @@
 #include "UsersRepository.h"
 
+UsersRepository::UsersRepository(const string& filePath) : filePath(filePath) {}
+
 vector<User> UsersRepository::findAll() {
     FileService fileService(usersFile);
 

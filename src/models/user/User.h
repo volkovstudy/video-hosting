@@ -15,6 +15,9 @@ public:
 
     int getId() const;
     const string &getName() const;
+
+    bool operator==(const User& rhs) const;
+    bool operator!=(const User& rhs) const;
 };
 
 

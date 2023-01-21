@@ -11,3 +11,12 @@ int User::getId() const {
 const string& User::getName() const {
     return _name;
 }
+
+bool User::operator==(const User& rhs) const {
+    return _id == rhs._id &&
+           _name == rhs._name;
+}
+
+bool User::operator!=(const User& rhs) const {
+    return !(rhs == *this);
+}

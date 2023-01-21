@@ -72,7 +72,8 @@ void shouldNotFindUserById() {
         usersRepository.findById(9999);
         assert(false == true); // This line shouldn't be run
     } catch (runtime_error& error) {
-        // If caught, the test passed
+        string errorMessage = error.what();
+        assert(errorMessage == "Didn't find user with id 9999");
     }
 }
 

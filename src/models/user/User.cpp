@@ -1,9 +1,8 @@
 #include "User.h"
 
-User::User(int id, const string& name, const string& password) :
+User::User(int id, const string& name) :
         _id(id),
-        _name(name),
-        _password(password) {}
+        _name(name) {}
 
 int User::getId() const {
     return _id;

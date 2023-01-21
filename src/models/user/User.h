@@ -10,9 +10,8 @@ class User {
 private:
     int _id;
     string _name;
-    string _password;
 public:
-    User(int id, const string& name, const string& password);
+    User(int id, const string& name);
 
     int getId() const;
     const string &getName() const;

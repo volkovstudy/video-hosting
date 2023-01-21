@@ -12,6 +12,8 @@
 class UsersRepository {
 private:
     string filePath;
+
+    vector<User> cache;
 public:
     explicit UsersRepository(const string& filePath);
 

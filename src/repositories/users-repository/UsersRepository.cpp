@@ -42,3 +42,12 @@ User& UsersRepository::findById(int id) {
 
     throw runtime_error(message.str());
 }
+
+void UsersRepository::save(const User& user, const string& password) {
+    string line = UsersLineParser::parse(user, password);
+
+    FileService fileService(filePath);
+    fileService.write(line);
+
+    cache.push_back(user);
+}

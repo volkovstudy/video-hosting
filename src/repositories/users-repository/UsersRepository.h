@@ -20,7 +20,7 @@ public:
     vector<User> findAll();
     User& findById(int id);
 
-    void save(const User& user);
+    void save(const User& user, const string& password);
 };
 
 

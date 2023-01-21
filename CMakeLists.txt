@@ -9,6 +9,7 @@ add_executable(video-hosting
         src/models/user/User.cpp src/models/user/User.h
         src/services/authentication-service/AuthenticationService.cpp src/services/authentication-service/AuthenticationService.h
         src/repositories/users-repository/UsersRepository.cpp src/repositories/users-repository/UsersRepository.h
+        src/repositories/users-repository/users-line-parser/UsersLineParser.cpp src/repositories/users-repository/users-line-parser/UsersLineParser.h
         src/repositories/films-repository/FilmsRepository.cpp src/repositories/films-repository/FilmsRepository.h
         src/services/file-service/FileService.cpp src/services/file-service/FileService.h
 )

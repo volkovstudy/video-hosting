@@ -5,6 +5,7 @@
 #include "models/user/User.h"
 
 #include "services/file-service/FileService.h"
+#include "repositories/users-repository/users-line-parser/UsersLineParser.h"
 
 #include <vector>
 

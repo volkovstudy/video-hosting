@@ -6,9 +6,13 @@
 #define testFile "users-repository-test.txt"
 
 void shouldFindAllUsers();
+void shouldFindUserById();
 
 int main() {
     shouldFindAllUsers();
+    ::remove(testFile);
+
+    shouldFindUserById();
     ::remove(testFile);
 
     return 0;
@@ -23,6 +27,21 @@ void writeUsersToFile(vector<User> users, FileService& fileService) {
     }
 }
 
+vector<User> givenTwoUsersInDatabase() {
+    vector<User> users = {User(1, "Petr"), User(2, "Alexander")};
+
+    FileService fileService(testFile);
+
+    for (const User& user: users) {
+        stringstream stream;
+        stream << user.getId() << databaseDelimiter << user.getName() << databaseDelimiter << "P@ssw0rd";
+
+        fileService.write(stream.str());
+    }
+
+    return users;
+}
+
 void shouldFindAllUsers() {
     UsersRepository usersRepository(testFile);
 
@@ -34,4 +53,16 @@ void shouldFindAllUsers() {
     vector<User> foundUsers = usersRepository.findAll();
 
     assert(users == foundUsers);
+}
+
+void shouldFindUserById() {
+    UsersRepository usersRepository(testFile);
+
+    vector<User> users = givenTwoUsersInDatabase();
+
+    User userOne = usersRepository.findById(1);
+    User userTwo = usersRepository.findById(2);
+
+    assert(userOne.getId() == 1 && users.at(0) == userOne);
+    assert(userTwo.getId() == 2 && users.at(1) == userTwo);
 }

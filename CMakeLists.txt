@@ -23,3 +23,7 @@ set(tests-sources ${main-sources})
 # UsersLineParser
 add_executable(users-line-parser-tests ${tests-sources} tests/users-line-parser-tests/UsersLineParserTests.cpp)
 add_test(NAME UsersLineParser COMMAND users-line-parser-tests)
+
+# FileService
+add_executable(file-service-tests ${tests-sources} tests/file-service-tests/FileServiceTests.cpp)
+add_test(NAME FileService COMMAND file-service-tests)

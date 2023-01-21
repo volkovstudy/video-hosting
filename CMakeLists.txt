@@ -27,3 +27,7 @@ add_test(NAME UsersLineParser COMMAND users-line-parser-tests)
 # FileService
 add_executable(file-service-tests ${tests-sources} tests/file-service-tests/FileServiceTests.cpp)
 add_test(NAME FileService COMMAND file-service-tests)
+
+# UsersRepository
+add_executable(users-repository-tests ${tests-sources} tests/users-repository-tests/UsersRepositoryTests.cpp)
+add_test(NAME UsersRepository COMMAND users-repository-tests)

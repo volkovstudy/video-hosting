@@ -12,6 +12,8 @@
 #define usersFile "video-hosting-database/users"
 
 class UsersRepository {
+private:
+    string filePath;
 public:
     vector<User> findAll();
     User& findById(int id);

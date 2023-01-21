@@ -4,7 +4,11 @@
 
 #include "models/user/User.h"
 
+#include <string>
+
 class UsersLineParser {
+public:
+    static User parse(const string& line);
 };
 
 

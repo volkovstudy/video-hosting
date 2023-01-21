@@ -22,15 +22,6 @@ int main() {
     return 0;
 }
 
-void writeUsersToFile(vector<User> users, FileService& fileService) {
-    for (const User& user: users) {
-        stringstream stream;
-        stream << user.getId() << databaseDelimiter << user.getName() << databaseDelimiter << "P@ssw0rd";
-
-        fileService.write(stream.str());
-    }
-}
-
 vector<User> givenTwoUsersInDatabase() {
     vector<User> users = {User(1, "Petr"), User(2, "Alexander")};
 

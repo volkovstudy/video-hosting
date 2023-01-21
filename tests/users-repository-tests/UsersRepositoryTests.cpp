@@ -49,10 +49,7 @@ vector<User> givenTwoUsersInDatabase() {
 void shouldFindAllUsers() {
     UsersRepository usersRepository(testFile);
 
-    // Given
-    vector<User> users = {User(1, "Petr"), User(2, "Alexander")};
-    FileService fileService = FileService(testFile);
-    writeUsersToFile(users, fileService);
+    vector<User> users = givenTwoUsersInDatabase();
 
     vector<User> foundUsers = usersRepository.findAll();
 

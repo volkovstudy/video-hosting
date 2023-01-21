@@ -12,6 +12,8 @@ private:
     string _name;
     string _password;
 public:
+    User(int id, const string& name, const string& password);
+
     int getId() const;
     const string &getName() const;
 };

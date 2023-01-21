@@ -5,6 +5,9 @@
 #include "models/user/User.h"
 
 #include <string>
+#include <vector>
+#include <sstream>
+#include <map>
 
 class UsersLineParser {
 public:

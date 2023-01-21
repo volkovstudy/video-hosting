@@ -16,6 +16,16 @@ User UsersLineParser::parse(const string& line) {
     return user;
 }
 
+string UsersLineParser::parse(const User& user, const string& password) {
+    stringstream line;
+
+    line << user.getId() << databaseDelimiter;
+    line << user.getName() << databaseDelimiter;
+    line << password;
+
+    return line.str();
+}
+
 vector<string> split(const string& line, char delimiter) {
     vector<string> result;
 

@@ -12,6 +12,7 @@
 class UsersLineParser {
 public:
     static User parse(const string& line);
+    static string parse(const User& user, const string& password);
 };
 
 

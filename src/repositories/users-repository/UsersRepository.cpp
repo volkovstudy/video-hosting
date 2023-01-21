@@ -22,3 +22,20 @@ vector<User> UsersRepository::findAll() {
 
     return users;
 }
+
+User& UsersRepository::findById(int id) {
+    if (cache.empty()) {
+        findAll();
+
+        if (cache.empty())
+            throw runtime_error("No users in database!");
+    }
+
+    for (User& user: cache) {
+        if (user.getId() == id) {
+            return user;
+        }
+    }
+
+    throw runtime_error("Didn't find user with id " + id);
+}

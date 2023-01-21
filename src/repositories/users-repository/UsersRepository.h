@@ -2,9 +2,9 @@
 #define VIDEO_HOSTING_USERSREPOSITORY_H
 
 
-#include "../../models/user/User.h"
+#include "models/user/User.h"
 
-#include "../../services/file-service/FileService.h"
+#include "services/file-service/FileService.h"
 
 #include <vector>
 

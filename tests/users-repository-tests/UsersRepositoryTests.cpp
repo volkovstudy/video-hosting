@@ -8,6 +8,7 @@
 void shouldFindAllUsers();
 void shouldFindUserById();
 void shouldNotFindUserById();
+void shouldNotFindUserByIdInEmptyDatabase();
 
 int main() {
     shouldFindAllUsers();
@@ -17,6 +18,9 @@ int main() {
     ::remove(testFile);
 
     shouldNotFindUserById();
+    ::remove(testFile);
+
+    shouldNotFindUserByIdInEmptyDatabase();
     ::remove(testFile);
 
     return 0;
@@ -69,5 +73,17 @@ void shouldNotFindUserById() {
         assert(false == true); // This line shouldn't be run
     } catch (runtime_error& error) {
         // If caught, the test passed
+    }
+}
+
+void shouldNotFindUserByIdInEmptyDatabase() {
+    UsersRepository usersRepository(testFile);
+
+    try {
+        usersRepository.findById(9999);
+        assert(false == true); // This line shouldn't be run
+    } catch (runtime_error& error) {
+        string errorMessage = error.what();
+        assert(errorMessage == "No users in database!");
     }
 }

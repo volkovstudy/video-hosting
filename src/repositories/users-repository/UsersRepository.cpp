@@ -37,5 +37,8 @@ User& UsersRepository::findById(int id) {
         }
     }
 
-    throw runtime_error("Didn't find user with id " + id);
+    stringstream message;
+    message << "Didn't find user with id " << id;
+
+    throw runtime_error(message.str());
 }

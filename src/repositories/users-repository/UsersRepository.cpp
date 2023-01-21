@@ -3,7 +3,7 @@
 UsersRepository::UsersRepository(const string& filePath) : filePath(filePath) {}
 
 vector<User> UsersRepository::findAll() {
-    FileService fileService(usersFile);
+    FileService fileService(filePath);
 
     vector<string> fileContent = fileService.readAll();
 

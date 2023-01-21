@@ -9,8 +9,6 @@
 
 #include <vector>
 
-#define usersFile "video-hosting-database/users"
-
 class UsersRepository {
 private:
     string filePath;

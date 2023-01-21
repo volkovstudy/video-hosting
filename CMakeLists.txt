@@ -12,3 +12,14 @@ file(GLOB_RECURSE main-sources
 )
 
 add_executable(video-hosting src/main.cpp ${main-sources})
+
+### TESTING ###
+enable_testing()
+
+include_directories(tests)
+
+set(tests-sources ${main-sources})
+
+# UsersLineParser
+add_executable(users-line-parser-tests ${tests-sources} tests/users-line-parser-tests/UsersLineParserTests.cpp)
+add_test(NAME UsersLineParser COMMAND users-line-parser-tests)

@@ -3,6 +3,7 @@
 
 
 #include "models/user/User.h"
+#include "services/utils/Utils.h"
 
 #include <string>
 #include <vector>

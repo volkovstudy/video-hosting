@@ -41,3 +41,12 @@ Film& FilmsRepository::findById(int id) {
 
     throw runtime_error(message.str());
 }
+
+void FilmsRepository::save(Film& film) {
+    string line = FilmsLineParser::parse(film);
+
+    FileService fileService(filePath);
+    fileService.write(line);
+
+    cache.push_back(film);
+}

@@ -11,3 +11,5 @@ const string &Film::getTitle() const {
 int Film::getMark() const {
     return _mark;
 }
+
+Film::Film(int id, const string& title, int mark) : _id(id), _title(title), _mark(mark) {}

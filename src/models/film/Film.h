@@ -12,6 +12,8 @@ private:
     string _title;
     int _mark;
 public:
+    Film(int id, const string& title, int mark);
+
     int getId() const;
     const string &getTitle() const;
     int getMark() const;

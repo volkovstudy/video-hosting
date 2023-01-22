@@ -15,6 +15,10 @@ User UsersLineParser::parse(const string& line) {
     return user;
 }
 
+map<string, string> UsersLineParser::parseIntoFields(const string& line) {
+    return UsersLineParser::convertLineToFields(line);
+}
+
 string UsersLineParser::parse(const User& user, const string& password) {
     stringstream line;
 

@@ -15,6 +15,7 @@ private:
     static map<string, string> convertLineToFields(const string& line);
 public:
     static User parse(const string& line);
+    static map<string, string> parseIntoFields(const string& line);
     static string parse(const User& user, const string& password);
 };
 

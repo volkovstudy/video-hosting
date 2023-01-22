@@ -17,6 +17,16 @@ Film FilmsLineParser::parse(const string& line) {
     return film;
 }
 
+string FilmsLineParser::parse(const Film& film) {
+    stringstream line;
+
+    line << film.getId() << databaseDelimiter;
+    line << film.getTitle() << databaseDelimiter;
+    line << film.getMark();
+
+    return line.str();
+}
+
 vector<string> split(const string& line, char delimiter) {
     vector<string> result;
 

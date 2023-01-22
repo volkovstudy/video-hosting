@@ -12,6 +12,7 @@
 class FilmsLineParser {
 public:
     static Film parse(const string& line);
+    static string parse(const Film& film);
 };
 
 

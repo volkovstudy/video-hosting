@@ -7,6 +7,8 @@
 #include <vector>
 
 class FilmsRepository {
+private:
+    vector<Film> cache;
 public:
     vector<Film> findAll();
     Film& findById(int id);

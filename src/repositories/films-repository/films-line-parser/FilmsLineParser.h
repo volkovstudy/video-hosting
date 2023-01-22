@@ -11,6 +11,8 @@
 #include <vector>
 
 class FilmsLineParser {
+private:
+    static map<string, string> convertLineToFields(const string& line);
 public:
     static Film parse(const string& line);
     static string parse(const Film& film);

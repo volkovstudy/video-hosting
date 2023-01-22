@@ -26,7 +26,7 @@ string FilmsLineParser::parse(const Film& film) {
     return line.str();
 }
 
-map<string, string> convertLineToFields(const string& line) {
+map<string, string> FilmsLineParser::convertLineToFields(const string& line) {
     map<string, string> fields;
     vector<string> splitLine = Utils::split(line, databaseDelimiter);
 

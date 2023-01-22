@@ -3,8 +3,8 @@
 UsersRepository::UsersRepository(const string& filePath) : _filePath(filePath) {}
 
 vector<User> UsersRepository::findAll() {
-    if (!cache.empty()) {
-        return cache;
+    if (!_cache.empty()) {
+        return _cache;
     }
 
     FileService fileService(_filePath);
@@ -18,20 +18,20 @@ vector<User> UsersRepository::findAll() {
         users.push_back(user);
     }
 
-    cache = users;
+    _cache = users;
 
     return users;
 }
 
 User& UsersRepository::findById(int id) {
-    if (cache.empty()) {
+    if (_cache.empty()) {
         findAll();
 
-        if (cache.empty())
+        if (_cache.empty())
             throw runtime_error("No users in database!");
     }
 
-    for (User& user: cache) {
+    for (User& user: _cache) {
         if (user.getId() == id) {
             return user;
         }
@@ -49,5 +49,5 @@ void UsersRepository::save(const User& user, const string& password) {
     FileService fileService(_filePath);
     fileService.write(line);
 
-    cache.push_back(user);
+    _cache.push_back(user);
 }

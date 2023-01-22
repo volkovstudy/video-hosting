@@ -32,6 +32,10 @@ add_test(NAME UsersLineParser COMMAND users-line-parser-tests)
 add_executable(users-repository-tests ${tests-sources} tests/users-repository-tests/UsersRepositoryTests.cpp)
 add_test(NAME UsersRepository COMMAND users-repository-tests)
 
+# FilmsLineParser
+add_executable(films-line-parser-tests ${tests-sources} tests/films-line-parser-tests/FilmsLineParserTests.cpp)
+add_test(NAME FilmsLineParser COMMAND films-line-parser-tests)
+
 # Utils
 add_executable(utils-tests ${tests-sources} tests/utils-tests/UtilsTests.cpp)
 add_test(NAME Utils COMMAND utils-tests)

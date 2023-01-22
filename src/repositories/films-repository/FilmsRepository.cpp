@@ -3,7 +3,7 @@
 FilmsRepository::FilmsRepository(const string& filePath) : _filePath(filePath) {}
 
 vector<Film> FilmsRepository::findAll() {
-    if (!cache.empty()) return cache;
+    if (!_cache.empty()) return _cache;
 
     FileService fileService(_filePath);
 
@@ -16,21 +16,21 @@ vector<Film> FilmsRepository::findAll() {
         films.push_back(film);
     }
 
-    cache = films;
+    _cache = films;
 
     return films;
 }
 
 Film& FilmsRepository::findById(int id) {
-    if (cache.empty()) {
+    if (_cache.empty()) {
         findAll();
 
-        if (cache.empty()) {
+        if (_cache.empty()) {
             throw runtime_error("Database is empty");
         }
     }
 
-    for (Film& film: cache) {
+    for (Film& film: _cache) {
         if (film.getId() == id) {
             return film;
         }
@@ -48,5 +48,5 @@ void FilmsRepository::save(Film& film) {
     FileService fileService(_filePath);
     fileService.write(line);
 
-    cache.push_back(film);
+    _cache.push_back(film);
 }

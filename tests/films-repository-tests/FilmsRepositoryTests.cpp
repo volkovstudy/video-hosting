@@ -8,6 +8,7 @@
 void shouldFindAllFilms();
 void shouldFindFilmById();
 void shouldNotFindFilmWithWrongIdAndThrowError();
+void shouldNotFindFilmInEmptyDatabaseAndThrowError();
 
 int main() {
     shouldFindAllFilms();
@@ -17,6 +18,9 @@ int main() {
     ::remove(testFile);
 
     shouldNotFindFilmWithWrongIdAndThrowError();
+    ::remove(testFile);
+
+    shouldNotFindFilmInEmptyDatabaseAndThrowError();
     ::remove(testFile);
 
     return 0;
@@ -73,5 +77,17 @@ void shouldNotFindFilmWithWrongIdAndThrowError() {
     } catch (runtime_error& error) {
         string errorMessage = error.what();
         assert("Didn't find film with id 999" == errorMessage);
+    }
+}
+
+void shouldNotFindFilmInEmptyDatabaseAndThrowError() {
+    FilmsRepository filmsRepository(testFile);
+
+    try {
+        filmsRepository.findById(999);
+        assert(false == true); // This line shouldn't be run
+    } catch (runtime_error& error) {
+        string errorMessage = error.what();
+        assert("Database is empty" == errorMessage);
     }
 }

@@ -4,6 +4,7 @@
 
 #include "models/film/Film.h"
 #include "services/file-service/FileService.h"
+#include "repositories/films-repository/films-line-parser/FilmsLineParser.h"
 
 #include <vector>
 

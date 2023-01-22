@@ -11,7 +11,7 @@
 
 class UsersRepository {
 private:
-    string filePath;
+    string _filePath;
 
     vector<User> cache;
 public:

@@ -1,13 +1,13 @@
 #include "UsersRepository.h"
 
-UsersRepository::UsersRepository(const string& filePath) : filePath(filePath) {}
+UsersRepository::UsersRepository(const string& filePath) : _filePath(filePath) {}
 
 vector<User> UsersRepository::findAll() {
     if (!cache.empty()) {
         return cache;
     }
 
-    FileService fileService(filePath);
+    FileService fileService(_filePath);
 
     vector<string> fileContent = fileService.readAll();
 
@@ -46,7 +46,7 @@ User& UsersRepository::findById(int id) {
 void UsersRepository::save(const User& user, const string& password) {
     string line = UsersLineParser::parse(user, password);
 
-    FileService fileService(filePath);
+    FileService fileService(_filePath);
     fileService.write(line);
 
     cache.push_back(user);

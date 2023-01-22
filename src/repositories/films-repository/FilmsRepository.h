@@ -8,8 +8,11 @@
 
 class FilmsRepository {
 private:
+    string filePath;
     vector<Film> cache;
 public:
+    explicit FilmsRepository(const string& filePath);
+
     vector<Film> findAll();
     Film& findById(int id);
 

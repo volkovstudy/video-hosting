@@ -6,9 +6,13 @@
 #define databaseDelimiter ','
 
 void shouldFindAllFilms();
+void shouldFindFilmById();
 
 int main() {
     shouldFindAllFilms();
+    ::remove(testFile);
+
+    shouldFindFilmById();
     ::remove(testFile);
 
     return 0;
@@ -40,4 +44,16 @@ void shouldFindAllFilms() {
     vector<Film> foundFilms = filmsRepository.findAll();
 
     assert(givenFilms == foundFilms);
+}
+
+void shouldFindFilmById() {
+    vector<Film> givenFilms = givenTwoFilmsInDatabase();
+
+    FilmsRepository filmsRepository(testFile);
+
+    Film filmOne = filmsRepository.findById(1);
+    Film filmTwo = filmsRepository.findById(2);
+
+    assert(filmOne == givenFilms.at(0));
+    assert(filmTwo == givenFilms.at(1));
 }

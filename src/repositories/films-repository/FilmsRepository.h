@@ -3,6 +3,7 @@
 
 
 #include "models/film/Film.h"
+#include "services/file-service/FileService.h"
 
 #include <vector>
 

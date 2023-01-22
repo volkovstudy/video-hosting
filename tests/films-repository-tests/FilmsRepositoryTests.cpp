@@ -7,12 +7,16 @@
 
 void shouldFindAllFilms();
 void shouldFindFilmById();
+void shouldNotFindFilmWithWrongIdAndThrowError();
 
 int main() {
     shouldFindAllFilms();
     ::remove(testFile);
 
     shouldFindFilmById();
+    ::remove(testFile);
+
+    shouldNotFindFilmWithWrongIdAndThrowError();
     ::remove(testFile);
 
     return 0;
@@ -56,4 +60,18 @@ void shouldFindFilmById() {
 
     assert(filmOne == givenFilms.at(0));
     assert(filmTwo == givenFilms.at(1));
+}
+
+void shouldNotFindFilmWithWrongIdAndThrowError() {
+    vector<Film> givenFilms = givenTwoFilmsInDatabase();
+
+    FilmsRepository filmsRepository(testFile);
+
+    try {
+        filmsRepository.findById(999);
+        assert(false == true); // This line shouldn't be run
+    } catch (runtime_error& error) {
+        string errorMessage = error.what();
+        assert("Didn't find film with id 999" == errorMessage);
+    }
 }

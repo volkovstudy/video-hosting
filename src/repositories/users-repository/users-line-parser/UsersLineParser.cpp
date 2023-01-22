@@ -5,7 +5,7 @@
 map<string, string> convertLineToFields(const string& line);
 
 User UsersLineParser::parse(const string& line) {
-    map<string, string> fields = convertLineToFields(line);
+    map<string, string> fields = UsersLineParser::convertLineToFields(line);
 
     User user(
             stoi(fields["id"]),
@@ -25,7 +25,7 @@ string UsersLineParser::parse(const User& user, const string& password) {
     return line.str();
 }
 
-map<string, string> convertLineToFields(const string& line) {
+map<string, string> UsersLineParser::convertLineToFields(const string& line) {
     map<string, string> fields;
     vector<string> splitLine = Utils::split(line, databaseDelimiter);
 

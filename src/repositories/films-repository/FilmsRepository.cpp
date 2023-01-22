@@ -1,11 +1,11 @@
 #include "FilmsRepository.h"
 
-FilmsRepository::FilmsRepository(const string& filePath) : filePath(filePath) {}
+FilmsRepository::FilmsRepository(const string& filePath) : _filePath(filePath) {}
 
 vector<Film> FilmsRepository::findAll() {
     if (!cache.empty()) return cache;
 
-    FileService fileService(filePath);
+    FileService fileService(_filePath);
 
     vector<string> fileContent = fileService.readAll();
 
@@ -45,7 +45,7 @@ Film& FilmsRepository::findById(int id) {
 void FilmsRepository::save(Film& film) {
     string line = FilmsLineParser::parse(film);
 
-    FileService fileService(filePath);
+    FileService fileService(_filePath);
     fileService.write(line);
 
     cache.push_back(film);

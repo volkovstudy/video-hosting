@@ -10,7 +10,7 @@
 
 class FilmsRepository {
 private:
-    string filePath;
+    string _filePath;
     vector<Film> cache;
 public:
     explicit FilmsRepository(const string& filePath);

@@ -20,3 +20,24 @@ vector<Film> FilmsRepository::findAll() {
 
     return films;
 }
+
+Film& FilmsRepository::findById(int id) {
+    if (cache.empty()) {
+        findAll();
+
+        if (cache.empty()) {
+            throw runtime_error("Database is empty");
+        }
+    }
+
+    for (Film& film: cache) {
+        if (film.getId() == id) {
+            return film;
+        }
+    }
+
+    stringstream message;
+    message << "Didn't find film with id " << id;
+
+    throw runtime_error(message.str());
+}

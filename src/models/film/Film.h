@@ -17,6 +17,9 @@ public:
     int getId() const;
     const string &getTitle() const;
     int getMark() const;
+
+    bool operator==(const Film& rhs) const;
+    bool operator!=(const Film& rhs) const;
 };
 
 

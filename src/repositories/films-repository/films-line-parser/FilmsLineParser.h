@@ -3,6 +3,7 @@
 
 
 #include "models/film/Film.h"
+#include "services/utils/Utils.h"
 
 #include <string>
 #include <sstream>

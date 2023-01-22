@@ -2,7 +2,6 @@
 
 #define databaseDelimiter ','
 
-vector<string> split(const string& line, char delimiter);
 map<string, string> convertLineToFields(const string& line);
 
 Film FilmsLineParser::parse(const string& line) {
@@ -27,22 +26,9 @@ string FilmsLineParser::parse(const Film& film) {
     return line.str();
 }
 
-vector<string> split(const string& line, char delimiter) {
-    vector<string> result;
-
-    stringstream stream(line);
-    string item;
-
-    while (getline(stream, item, delimiter)) {
-        result.push_back(item);
-    }
-
-    return result;
-}
-
 map<string, string> convertLineToFields(const string& line) {
     map<string, string> fields;
-    vector<string> splitLine = split(line, databaseDelimiter);
+    vector<string> splitLine = Utils::split(line, databaseDelimiter);
 
     // Line format: id,title,mark
     fields["id"] = splitLine.at(0);

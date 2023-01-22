@@ -1,5 +1,7 @@
 #include "UsersRepository.h"
 
+#define databaseDelimiter ','
+
 UsersRepository::UsersRepository(const string& filePath) : _filePath(filePath) {}
 
 vector<User> UsersRepository::findAll() {
@@ -50,4 +52,26 @@ void UsersRepository::save(const User& user, const string& password) {
     fileService.write(line);
 
     _cache.push_back(user);
+}
+
+string UsersRepository::getPasswordByUserId(int id) {
+    FileService fileService(_filePath);
+
+    vector<string> fileContent = fileService.readAll();
+
+    string idString = to_string(id);
+    string password;
+
+    for (const string& line: fileContent) {
+        map<string, string> fields = UsersLineParser::parseIntoFields(line);
+
+        if (fields["id"] != idString) continue;
+
+        return fields["password"];
+    }
+
+    stringstream message;
+    message << "Didn't find user with id " << id;
+
+    throw runtime_error(message.str());
 }
